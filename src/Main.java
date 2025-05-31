@@ -1,18 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        Point p1 = new Point(1, 2);
-        Point p2 = new Point(3, 4);
-        Line line1 = new Line(p1, p2);
-        Line line2 = new Line(new Point(1, 2), new Point(3, 4));
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(1, 1);
+        Point p3 = new Point(2, 2);
 
-        System.out.println("line1 equals line2: " + line1.equals(line2)); // true
+        PolyLine polyline1 = new PolyLine(p1, p2, p3);
+        PolyLine polyline2 = new PolyLine(new Point(0, 0), new Point(1, 1), new Point(2, 2));
+        PolyLine polyline3 = new PolyLine(p1, p3);
 
+        System.out.println("polyline1.equals(polyline2): " + polyline1.equals(polyline2)); // true
+        System.out.println("polyline1.equals(polyline3): " + polyline1.equals(polyline3)); // false
 
-        try {
-            Line line3 = (Line) line1.clone();
-            System.out.println("Cloned line: " + line3);
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        System.out.println("Длина polyline1: " + polyline1.length());
+        System.out.println("Длина polyline3: " + polyline3.length());
     }
 }
